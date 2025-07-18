@@ -1,0 +1,283 @@
+html {
+  scroll-padding-top: 35px;
+}
+
+body, html {
+      margin: 0;
+      padding: 27px 0 0 0;
+      height: 100%;
+      font-family: "Merriweather", serif;
+      background-color: #fff;
+    }
+     /* --- NAVBAR --- */
+     .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 0.5rem 1rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid #dee2e6;
+      box-sizing: border-box;
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      transition: background-color 0.3s ease;
+  }
+
+  .nav-left, .nav-right {
+      display: flex;
+      gap: 1rem;
+  }
+
+  .nav-center {
+      font-weight: bold;
+      font-size: 15px;
+      color: #e45c75;
+      text-align: center;
+      flex-grow: 1;
+      user-select: none;
+  }
+
+  .nav-left .nav-link,
+  .nav-right .nav-link {
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      color: #e45c75;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: block;
+  }
+
+.nav-left .nav-link:hover,
+.nav-right .nav-link:hover {
+background-color: #e45c75;
+color: #fff !important;
+}
+
+  .nav-left .nav-link.active {
+      color: #e45c75;
+      border-bottom: 2px solid #e45c75;
+      font-weight: bold;
+  }
+
+.nav-link.active {
+  color: #e45c75;
+  border-bottom: 2px solid #e45c75;
+  font-weight: bold;
+}
+  /* --- AKHIR NAVBAR --- */
+
+    /* --- HERO & QUIZ BOX --- */
+    .hero-1 {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 70px; /* tinggi navbar */
+      min-height: unset;
+      max-height: 100vh;
+    }
+    .cover-image {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+.quiz-overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+    min-height: unset;
+    max-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 80px;
+}
+
+#quiz-box {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 600px !important;   /* batasi lebar agar tidak full */
+    width: 100% !important;
+    margin: 0 auto !important;     /* tengah horizontal */
+    padding: 0 !important;
+}
+    @media (max-width: 600px) {
+      .hero-1 {
+        padding-top: 60px;
+      }
+      .cover-image {
+        height: 60vh;
+      }
+      #quiz-box {
+        max-width: 98vw;
+        padding: 1rem !important;
+        opacity: 0.30;
+        height: relative; /* ubah dari fixed ke relative */
+      }
+    }
+
+    #question{
+    font-size: 1.1rem;
+    font-family: "merriweather", serif;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    }
+
+#a_text,
+#b_text,
+#c_text,
+#d_text {
+    font-size: 0.80rem; /* atau lebih kecil, misal 0.95rem atau 14px */
+    font-family: "Merriweather", serif;
+}
+
+input[type="radio"].form-check-input {
+    width: 15px;   /* ukuran lebar */
+    height: 15px;  /* ukuran tinggi */
+    accent-color: #e45c75; /* warna radio (opsional, modern browser) */
+}
+
+.option-box {
+    padding: 1.2rem 1.5rem;   /* perbesar area dalam box */
+    font-size: 1.05rem;       /* perbesar teks dalam box */
+    min-height: 56px;         /* tinggi minimum agar lebih besar */
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.95); /* tambah background solid */
+    border-radius: 8px;       /* tambah border radius untuk estetika */
+    margin-bottom: 10px;      /* tambah margin antar option */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* tambah shadow untuk depth */
+}
+
+.form-check-label {
+    margin-left: 8px; /* atau sesuai kebutuhan */
+}
+
+#submit {
+    display: block;
+    margin: 56px auto 0 auto; /* atas, kanan, bawah, kiri */
+    background-color: #b3d188;
+}
+
+#submit:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#result-image {
+    max-height: 600px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto 8px auto;
+    object-fit: contain;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+#result-image:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    cursor: pointer;
+}
+
+.btn-ulang {
+    background-color: #b3d188 !important; /* warna pink sesuai tema */
+    color: #fff !important;
+    font-size: 1rem; /* ubah sesuai kebutuhan */
+    font-family: "Merriweather", serif;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 28px;
+    transition: background 0.2s;
+    display: block;
+    margin: 5px auto 0 auto; /* reduce top margin and center horizontally */
+    align-items: center;
+    text-align: center;
+}
+.btn-ulang:hover.btn-ulang:hover {
+    background-color: #f2f0ff !important; /* warna hover, bisa diganti */
+    color: #333 !important;
+}
+
+.flipy {
+  width: 100%;
+  max-width: 90vw;
+  margin: 0 auto 8px auto;
+  perspective: 1000px;
+  position: relative;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.flipy .card {
+  width: auto;
+  height: auto;
+  min-height: unset;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: relative;
+  display: flex;
+}
+
+.flipy .card .face {
+  width: 100%;
+  height: auto;
+  min-height: unset;
+  position: relative;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 2;
+  font-family: Georgia;
+  font-size: 3em;
+  text-align: center;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flipy .card .front img {
+  max-width: 90vw;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.flipy .card .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+  color: #333;
+  transform: rotateY(180deg);
+  font-size: 1.2rem;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
